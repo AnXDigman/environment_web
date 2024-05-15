@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    html{font: 1rem 'Poppins', sans-serif;}
+    html::-webkit-scrollbar{@apply w-4;}
+    html::-webkit-scrollbar-track{@apply bg-emerald-900;}
+    html::-webkit-scrollbar-thumb{
+        @apply bg-red-500 rounded-full;
+        border: 2px solid rgb(3, 44, 3);
+    }
+    .hero{
+        position: relative;
+        z-index: 3;
+    }
+    .grid-placement{
+        position: relative;
+        z-index: -1;
+    }
+    .grid-placement::before{
+        @apply inset-0 absolute;
+        content: '';
+        background-image: linear-gradient(to bottom, #ffffff00, #000000);
+        z-index: -3;
+    }
+    .lines{@apply h-full w-64 border-x-2 border-lime-950;}
+
+    .box-right{@apply bg-red-900;}
+
+    .box-left{@apply bg-black;}
+
+    .think{@apply relative p-4 text-slate-300 rounded-xl bg-emerald-700 flex flex-col justify-start items-center cursor-pointer overflow-hidden;}
+
+    .think > h1{@apply text-2xl text-orange-400 font-bold;}
+
+    .info{@apply p-4 w-full mt-10 flex flex-col items-start justify-start;}
+
+    .center-btn{@apply w-full h-32 absolute bottom-6 flex justify-center items-center;}
+
+    .check-out{@apply h-32 w-32 p-6 flex justify-center items-center bg-red-500 rounded-full;}
+
+    .com-based{
+        @apply relative h-full w-[10rem] overflow-hidden p-4 bg-emerald-700 rounded-3xl cursor-pointer;
+        box-shadow: 0 0 50px -10px #000;
+        transition: width .3s ease-in-out;
+    }
+    .com-based::before{
+        content: '';
+        @apply absolute top-0 opacity-0;
+        transition: opacity .3s ease-in-out, top .3s ease-in-out;
+    }
+    .com-based:hover::before{
+        content: 'Click to expand';
+        @apply top-3 opacity-100;
+    }
+    .opened{@apply w-[30rem];}
+    .opened > .heading{@apply bottom-[64%] flex-row gap-[2rem]}
+    .opened > .cont-info{@apply opacity-100 bottom-6 translate-x-0 pointer-events-none;}
+    .opened::before{
+        content: '';
+    }
+    .opened:hover::before{
+        content: '';
+    }
+    .heading{
+        @apply h-[10rem] w-full p-4 absolute justify-start bottom-0 right-0 left-0 border-slate-800 flex flex-col items-center rounded-xl;
+        transition: bottom .3s ease-in-out;
+    }
+
+    .cont-info{
+        @apply translate-x-[-10rem] translate-y-[80%] opacity-0;
+        transition: transform .3s ease-in-out;
+    }
+
+    .round-hold{@apply h-24 w-24 text-white text-3xl font-bold bg-purple-950 rounded-full flex justify-center items-center;}
+
+    .cont-name{@apply font-bold;}
+
+    .quote{@apply italic;}
+
+    .graph-box::before{
+        content: '% of trees planted';
+        @apply absolute top-[10rem] left-[5.4rem] w-[1rem] text-black font-bold;
+    }
+
+    .graph-cont{@apply flex flex-col items-center justify-end text-black;}
+    .graph-scale{@apply h-[20rem] w-[5rem] bg-pink-800 rounded-lg;}
+
+    .gvn-box{@apply grid grid-cols-3 gap-4;}
+    .gvn-elem{@apply relative p-4}
+
+    .gvn-elem:not(:nth-child(3))::after{
+        content: '';
+        @apply absolute left-[22rem] h-[2rem] w-[10rem] bg-orange-700;
+        transform: skewX(45deg);
+    }
+
+    .gvn-elem-box{@apply relative w-full border-2 bg-orange-700 flex items-center justify-center rounded-lg p-4}
+
+    .btn-gvn{@apply h-[8rem] absolute  bottom-0 left-0 right-0 mt-8 p-4 w-full flex justify-center items-center;}
+    .gvn-btn{@apply relative h-14 w-full font-bold flex justify-center items-center rounded-lg overflow-hidden bg-white text-black p-4 z-10;}
+    .gvn-btn::before{
+        content: '';
+        @apply absolute -z-10 h-full w-full top-0 left-0 right-0 bottom-0 origin-left scale-x-0 bg-purple-700;
+        transition: transform .3s ease-in-out;
+    }
+    .gvn-btn:hover::before{@apply scale-x-100;}
+
+    .last-box{@apply relative bg-emerald-700 mt-24 p-4 text-white h-[20rem] rounded-md;}
+    .last-heading{@apply text-4xl font-bold mb-8;}
+    .last-btn-box{@apply h-[5rem] w-[full] absolute bottom-0 right-0 left-0 flex justify-center items-center;}
+    .last-btn{@apply border-2 h-[4rem] w-[20rem] rounded-lg; box-shadow: 0; transition: box-shadow .3s ease-in-out;}
+    .last-btn:hover{box-shadow: 0 0 30px -10px #000;}
+}
